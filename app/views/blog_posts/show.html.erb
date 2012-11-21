@@ -15,6 +15,11 @@
   <%= @blog_post.content %>
 </p>
 
+<h2>Comments</h2>
+<%= render @blog_post.user_comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'user_comments/comment_form' %>
 
 <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
 <%= link_to 'Back', blog_posts_path %>

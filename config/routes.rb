@@ -1,6 +1,7 @@
 RailsBlog::Application.routes.draw do
-  resources :blog_posts
-
+  resources :blog_posts do
+    resources :user_comments
+  end
 
   # get "home/index"
 
