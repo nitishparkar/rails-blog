@@ -1,29 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @blog_post.name %>
-</p>
+<div class="blog-post">
+    <div class="title"> 
+        <h2><%= @blog_post.title %></h2>
+    </div>
+        <p>author: <%= @blog_post.name %></p> 
+    <hr/>
+    <div class="content">
+        <%= @blog_post.content %>
+    </div>
+    <p>tags: <%= join_tags(@blog_post) %></p>
+</div>
 
-<p>
-  <b>Title:</b>
-  <%= @blog_post.title %>
-</p>
 
-<p>
-  <b>Content:</b>
-  <%= @blog_post.content %>
-</p>
 
-<p>
-  <b>Tags:</b>
-  <%= join_tags(@blog_post) %>
-</p>
+<% unless @blog_post.user_comments.empty? %>
+    <h2>Comments</h2>
+    <div class="comments">
+        <%= render @blog_post.user_comments %>
+    </div>
+<% end %>
 
-<h2>Comments</h2>
-<%= render @blog_post.user_comments %>
-
-<h2>Add a comment:</h2>
+<h3>Add a comment:</h3>
 <%= render 'user_comments/comment_form' %>
 
 <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |

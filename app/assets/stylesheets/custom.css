@@ -1,0 +1,25 @@
+body {
+	
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    width: 800px;
+    margin: 0 auto;
+	padding: 10px;
+}
+
+a {
+    text-decoration: none; color: black;
+}
+
+
+.error{
+	color: red;
+}
+
+.alignleft {
+    float: left;
+}
+
+.alignright {
+    float: right;
+}

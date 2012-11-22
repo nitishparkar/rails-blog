@@ -3,6 +3,7 @@ class BlogPost < ActiveRecord::Base
 
   validates :name, :presence => true
   validates :title, :presence => true, :length => { :minimum => 5 }
+  validates :content, :presence => true, :length => { :minimum => 10 }
 
   has_many :user_comments, :dependent => :destroy
   has_many :post_tags
