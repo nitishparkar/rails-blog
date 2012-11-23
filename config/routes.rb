@@ -1,4 +1,6 @@
 RailsBlog::Application.routes.draw do
+  devise_for :users
+
   resources :blog_posts do
     resources :user_comments
   end
