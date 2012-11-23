@@ -11,4 +11,8 @@ module BlogPostsHelper
         return "unknown"
     end
   end
+
+  def is_authorized?(user_id)
+    user_id == current_user.id
+  end
 end

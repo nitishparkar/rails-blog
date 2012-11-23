@@ -1,29 +1,29 @@
-<p id="notice"><%= notice %></p>
-
-
 <div class="blog-post">
-    <div class="title"> 
+    <div class="post-header"> 
         <h2><%= @blog_post.title %></h2>
+        Author:<strong><%= get_username(@blog_post.user_id) %></strong> 
     </div>
-        <p>author: <%= get_username(@blog_post.user_id) %></p> 
-    <hr/>
-    <div class="content">
-        <%= @blog_post.content %>
-    </div>
+
+    <hr />
+    
+    <div class="post-content"> <%= @blog_post.content %> </div>
     <p>tags: <%= join_tags(@blog_post) %></p>
 </div>
 
 
+<div class="comments">
+    <% unless @blog_post.user_comments.empty? %>
+        <h2>Comments</h2>
+        <div class="comments">
+            <%= render @blog_post.user_comments %>
+        </div>
+    <% end %>
 
-<% unless @blog_post.user_comments.empty? %>
-    <h2>Comments</h2>
-    <div class="comments">
-        <%= render @blog_post.user_comments %>
-    </div>
-<% end %>
+    <h3>Add a comment:</h3>
+    <%= render 'user_comments/comment_form' %>
 
-<h3>Add a comment:</h3>
-<%= render 'user_comments/comment_form' %>
-
-<%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
-<%= link_to 'Back', blog_posts_path %>
+    <% if user_signed_in? and is_authorized?(@blog_post.user_id) %>
+        <%= link_to 'Edit', edit_blog_post_path(@blog_post) %>
+    <% end %>
+    <%= link_to 'Back', blog_posts_path %>
+</div>
