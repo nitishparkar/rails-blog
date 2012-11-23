@@ -12,7 +12,7 @@
 
 <% @blog_posts.each do |blog_post| %>
   <tr>
-    <td><%= blog_post.name %></td>
+    <td><%= get_username(blog_post.user_id) %></td>
     <td><%= blog_post.title %></td>
     <td><%= blog_post.content %></td>
     <td><%= link_to 'Show', blog_post %></td>

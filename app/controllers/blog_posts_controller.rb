@@ -41,6 +41,7 @@ class BlogPostsController < ApplicationController
   # POST /blog_posts.json
   def create
     @blog_post = BlogPost.new(params[:blog_post])
+    @blog_post.user_id = current_user.id
 
     respond_to do |format|
       if @blog_post.save
