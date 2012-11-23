@@ -7,6 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <div class="pull-left">
+      <%= link_to "Home", blog_posts_path %> 
+    </div>
     <div class="pull-right">
         <% if user_signed_in? %>
             <strong><%= current_user.username %></strong> | 

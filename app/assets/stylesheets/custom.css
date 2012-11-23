@@ -29,10 +29,16 @@ a {
 }
 
 .post-content {
-    word-wrap: break-word;
     white-space: pre;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }
 
 .blog-post + .blog-post {
-    margin-top: 40px;
+    margin-top: 30px;
 }

@@ -8,8 +8,10 @@
 <%= user_comment.body %>
 </p>
 
-<p>
-  <%= link_to 'Destroy Comment', [user_comment.blog_post, user_comment],
-               :confirm => 'Are you sure?',
-               :method => :delete %>
-</p>
+<% if user_signed_in? %>
+    <p>
+      <%= link_to 'Destroy Comment', [user_comment.blog_post, user_comment],
+                   :confirm => 'Are you sure?',
+                   :method => :delete %>
+    </p>
+<% end %>

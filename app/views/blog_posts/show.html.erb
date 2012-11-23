@@ -1,7 +1,16 @@
 <div class="blog-post">
     <div class="post-header"> 
         <h2><%= @blog_post.title %></h2>
-        Author:<strong><%= get_username(@blog_post.user_id) %></strong> 
+        
+        <div class="pull-left">
+            Author:<strong><%= get_username(@blog_post.user_id) %></strong> 
+        </div>
+        <div class="pull-right">
+            <% if user_signed_in? and is_authorized?(@blog_post.user_id) %>
+                <%= link_to 'Edit', edit_blog_post_path(@blog_post) %>
+            <% end %>
+        </div>
+        <div class="clearfix"></div>
     </div>
 
     <hr />
@@ -22,8 +31,5 @@
     <h3>Add a comment:</h3>
     <%= render 'user_comments/comment_form' %>
 
-    <% if user_signed_in? and is_authorized?(@blog_post.user_id) %>
-        <%= link_to 'Edit', edit_blog_post_path(@blog_post) %>
-    <% end %>
-    <%= link_to 'Back', blog_posts_path %>
+    
 </div>
