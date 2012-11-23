@@ -13,12 +13,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title , :maxlength => 30 %>
   </div>
   <div class="field">
     <%= f.label :content %><br />

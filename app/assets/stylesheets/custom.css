@@ -1,6 +1,6 @@
 body {
 	
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Georgia;
     font-size: 14px;
     width: 800px;
     margin: 0 auto;
@@ -16,10 +16,29 @@ a {
 	color: red;
 }
 
-.alignleft {
+.pull-left {
     float: left;
 }
 
-.alignright {
+.pull-right {
     float: right;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.post-content {
+    white-space: pre;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+.blog-post + .blog-post {
+    margin-top: 30px;
 }

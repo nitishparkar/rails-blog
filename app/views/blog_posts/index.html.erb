@@ -1,27 +1,31 @@
-<h1>Listing blog_posts</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @blog_posts.each do |blog_post| %>
-  <tr>
-    <td><%= blog_post.name %></td>
-    <td><%= blog_post.title %></td>
-    <td><%= blog_post.content %></td>
-    <td><%= link_to 'Show', blog_post %></td>
-    <td><%= link_to 'Edit', edit_blog_post_path(blog_post) %></td>
-    <td><%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <div class="blog-post">
+      <div class="post-header">
+        <h2><%= blog_post.title %></h2>
+        
+        <div class="pull-left">
+          Author:<strong><%= get_username(blog_post.user_id) %></strong> 
+        </div>
+        <div class="pull-right">
+          <%= link_to 'View', blog_post %>
+          <% if user_signed_in? and is_authorized?(blog_post.user_id) %>
+            <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
+            <%= link_to 'Delete', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      
+      <hr />
+      
+      <div class="post-content"> <%= blog_post.content %> </div>
+  </div>
 <% end %>
-</table>
+
 
 <br />
 
-<%= link_to 'New Blog post', new_blog_post_path %>
+<strong><%= link_to 'New Blog post', new_blog_post_path %></strong>
+

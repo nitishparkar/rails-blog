@@ -7,8 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <div class="pull-left">
+      <%= link_to "Home", blog_posts_path %> 
+    </div>
+    <div class="pull-right">
+        <% if user_signed_in? %>
+            <strong><%= current_user.username %></strong> | 
+            <%= link_to "Settings", edit_user_registration_path %> |
+            <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+        <% else %>
+            <%= link_to "Sign Up", new_user_registration_path %> |
+            <%= link_to "Sign In", new_user_session_path %>
+        <% end %>
+    </div>
+    <div class="clearfix"></div>
+    <br />
+    <p id="notice"><%= notice %></p>
+    <p id="alert"><%= alert %></p>
 
-<%= yield %>
+    <%= yield %>
 
 </body>
 </html>

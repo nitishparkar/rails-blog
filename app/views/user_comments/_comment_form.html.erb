@@ -1,7 +1,7 @@
 <%= form_for([@blog_post, @blog_post.user_comments.build]) do |f| %>
   <div class="field">
     <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
+    <%= f.text_field :commenter, :maxlength => 15 %>
   </div>
   <div class="field">
     <%= f.label :body %><br />

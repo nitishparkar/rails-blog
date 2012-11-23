@@ -1,4 +1,18 @@
 class BlogPostsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :get_blog_post, only: [:edit, :update, :destroy]
+  before_filter :check_authorisation, only: [:edit, :update, :destroy]
+
+  def get_blog_post
+    @blog_post = BlogPost.find(params[:id]) 
+  end
+
+  def check_authorisation
+    unless @blog_post.user_id == current_user.id
+      redirect_to blog_posts_path, notice: 'You are not authorized to modify that resource'
+    end
+  end
+
   # GET /blog_posts
   # GET /blog_posts.json
   def index
@@ -34,13 +48,14 @@ class BlogPostsController < ApplicationController
 
   # GET /blog_posts/1/edit
   def edit
-    @blog_post = BlogPost.find(params[:id])
+    
   end
 
   # POST /blog_posts
   # POST /blog_posts.json
   def create
     @blog_post = BlogPost.new(params[:blog_post])
+    @blog_post.user_id = current_user.id
 
     respond_to do |format|
       if @blog_post.save
@@ -56,7 +71,6 @@ class BlogPostsController < ApplicationController
   # PUT /blog_posts/1
   # PUT /blog_posts/1.json
   def update
-    @blog_post = BlogPost.find(params[:id])
 
     respond_to do |format|
       if @blog_post.update_attributes(params[:blog_post])
@@ -72,7 +86,6 @@ class BlogPostsController < ApplicationController
   # DELETE /blog_posts/1
   # DELETE /blog_posts/1.json
   def destroy
-    @blog_post = BlogPost.find(params[:id])
     @blog_post.destroy
 
     respond_to do |format|
