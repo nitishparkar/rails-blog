@@ -1,6 +1,8 @@
 RailsBlog::Application.routes.draw do
   devise_for :users
 
+  match 'tags/:tag' => 'blog_posts#index', :as => :tag
+
   resources :blog_posts do
     resources :user_comments
   end
@@ -13,6 +15,7 @@ RailsBlog::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
+
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

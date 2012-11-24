@@ -58,5 +58,13 @@ module RailsBlog
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # ActsAsTaggableOn configurations
+
+    #  remove unused tag objects after removing taggings
+    ActsAsTaggableOn.remove_unused_tags = true
+
+    # force tags to be saved downcased
+    ActsAsTaggableOn.force_lowercase = true
   end
 end

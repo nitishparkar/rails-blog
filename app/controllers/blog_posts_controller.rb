@@ -16,7 +16,11 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts
   # GET /blog_posts.json
   def index
-    @blog_posts = BlogPost.all
+    if params[:tag]
+      @blog_posts = BlogPost.tagged_with(params[:tag])
+    else
+      @blog_posts = BlogPost.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
