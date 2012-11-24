@@ -1,4 +1,3 @@
-<% @blog_post.post_tags.build %>
 <%= form_for(@blog_post) do |f| %>
   <% if @blog_post.errors.any? %>
     <div id="error_explanation">
@@ -20,9 +19,6 @@
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
-  <h2>Tags</h2>
-  <%= render :partial => 'post_tags/tag_form',
-             :locals => {:form => f} %>
   <div class="actions">
     <%= f.submit %>
   </div>

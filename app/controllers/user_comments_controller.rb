@@ -22,12 +22,4 @@ class UserCommentsController < ApplicationController
         @user_comment.destroy
         redirect_to blog_post_path(@blog_post)
     end
-
-    def index
-        @user_comments = @blog_post.user_comments
-        respond_to do |format|
-          format.html # index.html.erb
-          format.json { render json: @user_comments }
-        end
-    end
 end
