@@ -16,10 +16,11 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts
   # GET /blog_posts.json
   def index
+    pagination_params = {:page => params[:page], :per_page => 10}
     if params[:tag]
-      @blog_posts = BlogPost.tagged_with(params[:tag])
+      @blog_posts = BlogPost.tagged_with(params[:tag]).paginate(pagination_params)
     else
-      @blog_posts = BlogPost.all
+      @blog_posts = BlogPost.paginate(pagination_params)
     end
 
     respond_to do |format|
