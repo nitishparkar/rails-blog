@@ -8,7 +8,8 @@
 </head>
 <body>
     <div class="pull-left">
-      <%= link_to "Home", blog_posts_path %> 
+      <%= link_to "Home", blog_posts_path %> |
+      <%= link_to 'New Blog post', new_blog_post_path %>
     </div>
     <div class="pull-right">
         <% if user_signed_in? %>
