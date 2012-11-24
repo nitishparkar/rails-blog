@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title , :maxlength => 30 %>
+    <%= f.text_field :title, :size => 35, :maxlength => 100 %>
   </div>
   <div class="field">
     <%= f.label :content %><br />
@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-    <%= f.text_field :tag_list , :size => 30, :maxlength => 50 %>
+    <%= f.text_field :tag_list , :size => 35, :maxlength => 50 %>
   </div>
   <div class="actions">
     <%= f.submit %>
