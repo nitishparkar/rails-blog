@@ -28,6 +28,8 @@ GEM
     activesupport (3.2.9)
       i18n (~> 0.6)
       multi_json (~> 1.0)
+    acts-as-taggable-on (2.3.3)
+      rails (~> 3.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
@@ -120,11 +122,13 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
+    will_paginate (3.0.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 2.3.1)
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
@@ -136,3 +140,4 @@ DEPENDENCIES
   therubyracer
   thin
   uglifier (>= 1.0.3)
+  will_paginate (~> 3.0)

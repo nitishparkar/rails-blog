@@ -1,4 +1,3 @@
-<% @blog_post.post_tags.build %>
 <%= form_for(@blog_post) do |f| %>
   <% if @blog_post.errors.any? %>
     <div id="error_explanation">
@@ -14,15 +13,16 @@
 
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_field :title , :maxlength => 30 %>
+    <%= f.text_field :title, :size => 35, :maxlength => 100 %>
   </div>
   <div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
-  <h2>Tags</h2>
-  <%= render :partial => 'post_tags/tag_form',
-             :locals => {:form => f} %>
+  <div class="field">
+    <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+    <%= f.text_field :tag_list , :size => 35, :maxlength => 50 %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

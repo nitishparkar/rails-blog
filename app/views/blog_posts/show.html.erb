@@ -16,9 +16,11 @@
     <hr />
     
     <div class="post-content"> <%= @blog_post.content %> </div>
-    <p>tags: <%= join_tags(@blog_post) %></p>
 </div>
 
+<div class="tags">
+    <%= raw format_tags(@blog_post.tag_list) %>
+</div>
 
 <div class="comments">
     <% unless @blog_post.user_comments.empty? %>
