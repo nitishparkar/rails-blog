@@ -1,3 +1,4 @@
+<% 2.times { @blog_post.assets.build } %>
 <%= form_for(@blog_post) do |f| %>
   <% if @blog_post.errors.any? %>
     <div id="error_explanation">
@@ -19,11 +20,26 @@
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
+
+  <div class="attachments">
+    <%= f.fields_for :assets do |asset| %>
+      <% if asset.object.new_record? %>
+        <div class="field">
+          <%= asset.file_field :usrfile %>
+        </div>
+      <% else %>
+        <%= raw get_link asset %>
+      <% end %>
+    <% end %>
+  </div>
+
+
   <div class="field">
     <%= f.label :tag_list, "Tags (separated by commas)" %><br />
     <%= f.text_field :tag_list , :size => 35, :maxlength => 50 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update", :class => "pull-left" %>
+    <%= button_to "Back", :back %>
   </div>
 <% end %>

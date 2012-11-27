@@ -8,6 +8,8 @@
         <div class="pull-right">
             <% if user_signed_in? and is_authorized?(@blog_post.user_id) %>
                 <%= link_to 'Edit', edit_blog_post_path(@blog_post) %>
+                <%= link_to 'Delete', @blog_post, method: :delete, 
+                data: { confirm: 'Are you sure?' } %>
             <% end %>
         </div>
         <div class="clearfix"></div>
@@ -18,20 +20,29 @@
     <div class="post-content"> <%= @blog_post.content %> </div>
 </div>
 
+<% unless @blog_post.assets.empty? %>
+    <div class="attachments">
+        <h3>Attachments:</h3>
+        <% for asset in @blog_post.assets %>
+            <div class="attachment">
+                <%= link_to( asset.usrfile_file_name , asset.usrfile.url )%>
+            </div>
+        <% end %> 
+    </div>
+<% end %> 
+
 <div class="tags">
     <%= raw format_tags(@blog_post.tag_list) %>
 </div>
 
-<div class="comments">
+<div class="comments-section">
     <% unless @blog_post.user_comments.empty? %>
-        <h2>Comments</h2>
+        <h3>Comments:</h3>
         <div class="comments">
             <%= render @blog_post.user_comments %>
         </div>
     <% end %>
-
-    <h3>Add a comment:</h3>
-    <%= render 'user_comments/comment_form' %>
-
-    
+    <div class="new-comment">
+        <%= render 'user_comments/comment_form' %>    
+    </div>
 </div>
