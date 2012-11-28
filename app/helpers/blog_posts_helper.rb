@@ -14,7 +14,7 @@ module BlogPostsHelper
   end
 
   def format_tags(tags_list)
-    tags_list.map { |tag| link_to tag, tag_path(:tag => tag) } .join(', ')
+    "<strong>" + tags_list.map { |tag| link_to tag, tag_path(:tag => tag) } .join('</strong>, <strong>') + "</strong>"
   end
 
   def get_link(asset)
