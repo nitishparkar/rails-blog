@@ -21,7 +21,7 @@
 </div>
 
 <% unless @blog_post.assets.empty? %>
-    <div class="attachments">
+    <div class="post-attachments">
         <h3>Attachments:</h3>
         <% for asset in @blog_post.assets %>
             <div class="attachment">
@@ -31,11 +31,12 @@
     </div>
 <% end %> 
 
-<div class="tags">
+<h3>tags:</h3>
+<div class="post-tags">
     <%= raw format_tags(@blog_post.tag_list) %>
 </div>
 
-<div class="comments-section">
+<div class="post-comments">
     <% unless @blog_post.user_comments.empty? %>
         <h3>Comments:</h3>
         <div class="comments">
