@@ -11,7 +11,6 @@ a {
     text-decoration: none; color: black;
 }
 
-
 .error{
 	color: red;
 }
@@ -39,6 +38,10 @@ a {
     hyphens: auto;
 }
 
-.blog-post + .blog-post {
+.post-tags {
+    margin: 10px;
+}
+
+.blog-post {
     margin-top: 30px;
 }

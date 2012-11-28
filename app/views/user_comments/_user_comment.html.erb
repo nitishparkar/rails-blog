@@ -1,7 +1,7 @@
 <p> 
     <b><%= user_comment.commenter %></b>, <%= user_comment.body %> 
     <% if user_signed_in? %>
-      <%= link_to 'delete', [user_comment.blog_post, user_comment],
+      <%= link_to '<delete>', [user_comment.blog_post, user_comment],
                    :confirm => 'Are you sure?',
                    :method => :delete %>
     <% end %>

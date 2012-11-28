@@ -1,13 +1,12 @@
 <% @blog_posts.each do |blog_post| %>
   <div class="blog-post">
       <div class="post-header">
-        <h2><%= blog_post.title %></h2>
+        <h2><%= link_to blog_post.title, blog_post %></h2>
         
         <div class="pull-left">
           Author:<strong><%= get_username(blog_post.user_id) %></strong> 
         </div>
         <div class="pull-right">
-          <%= link_to 'View', blog_post %>
           <% if user_signed_in? and is_authorized?(blog_post.user_id) %>
             <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
             <%= link_to 'Delete', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %>
@@ -19,6 +18,9 @@
       <hr />
       
       <div class="post-content"> <%= blog_post.content %> </div>
+      <div class="post-tags">
+        tags: <%= raw format_tags(blog_post.tag_list) %>
+      </div>
   </div>
 <% end %>
 
