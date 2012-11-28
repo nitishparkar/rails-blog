@@ -23,11 +23,7 @@
 <% unless @blog_post.assets.empty? %>
     <div class="post-attachments">
         <h3>Attachments:</h3>
-        <% for asset in @blog_post.assets %>
-            <div class="attachment">
-                <%= link_to( asset.usrfile_file_name , asset.usrfile.url )%>
-            </div>
-        <% end %> 
+        <%= raw get_attachments(@blog_post.assets) %>
     </div>
 <% end %> 
 
