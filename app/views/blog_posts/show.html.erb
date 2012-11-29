@@ -21,13 +21,13 @@
 </div>
 <br />
 <div class="fb-button">
-    <a href="https://www.facebook.com/dialog/feed?
+    <%= button_to "I have read this post!", "https://www.facebook.com/dialog/feed?
   app_id=129777817126964&
   link=http://genii.in/&
   picture=https://nameless-plains-7988.herokuapp.com/genii.jpg&
-  name=<%= @blog_post.title %>&
+  name=" + @blog_post.title + "&
   description= I read this post on https://nameless-plains-7988.herokuapp.com/&
-  redirect_uri=https://nameless-plains-7988.herokuapp.com/"> I have read this post!</a>
+  redirect_uri=https://nameless-plains-7988.herokuapp.com/" %>
 </div>
 
 <% unless @blog_post.assets.empty? %>
