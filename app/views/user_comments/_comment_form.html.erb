@@ -1,4 +1,4 @@
-<%= form_for([@blog_post, @blog_post.user_comments.build]) do |f| %>
+<%= form_for([@blog_post, @blog_post.user_comments.build], remote: true) do |f| %>
   <div class="field">
     <%= f.label :commenter, "Name" %><br />
     <%= f.text_field :commenter, :maxlength => 15 %>

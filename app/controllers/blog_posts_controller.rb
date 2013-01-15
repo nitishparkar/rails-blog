@@ -33,10 +33,13 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts/1.json
   def show
     @blog_post = BlogPost.find(params[:id])
+    @next = @blog_post.next
+    @prev = @blog_post.prev
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @blog_post }
+      format.js
     end
   end
 
@@ -98,4 +101,5 @@ class BlogPostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 end

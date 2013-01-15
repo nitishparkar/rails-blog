@@ -1,0 +1,14 @@
+$('.post-header h2').text('<%= @blog_post.title %>');
+$('#author').text('<%= get_username(@blog_post.user_id) %>');
+$('.post-content').text('<%= @blog_post.content %>');
+$('#prev').html('<%= link_to "< Prev", @prev, remote: true %>');
+$('#next').html('<%= link_to "Next >", @next, remote: true %>');
+$('.post-tags').html('<%= raw format_tags(@blog_post.tag_list) %>');
+$('.post-comments h3').remove();
+$('.post-comments .comments').remove();
+<% unless @blog_post.user_comments.empty? %>
+	$('.post-comments').prepend('<div class="comments"></div>');
+	$('.post-comments').prepend('<h3>Comments:</h3>');
+	$('<%= j render @blog_post.user_comments %>').appendTo('.post-comments .comments');
+<% end %>
+$('.new-comment').html('<%= j render "user_comments/comment_form" %>');

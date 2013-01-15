@@ -14,12 +14,20 @@ class UserCommentsController < ApplicationController
 
     def create
         @user_comment = @blog_post.user_comments.create(params[:user_comment])
-        redirect_to blog_post_path(@blog_post)
+        respond_to do |format|
+            format.html { redirect_to blog_post_path(@blog_post) }
+            format.js
+        end
+        
     end
 
     def destroy
         @user_comment = @blog_post.user_comments.find(params[:id])
         @user_comment.destroy
-        redirect_to blog_post_path(@blog_post)
+        @del_id = params[:id]
+        respond_to do |format|
+            format.html { redirect_to blog_post_path(@blog_post) }
+            format.js
+        end
     end
 end

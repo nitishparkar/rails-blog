@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126151234) do
+ActiveRecord::Schema.define(:version => 20130115061930) do
 
   create_table "assets", :force => true do |t|
     t.integer  "blog_post_id"
@@ -33,15 +33,6 @@ ActiveRecord::Schema.define(:version => 20121126151234) do
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
   end
-
-  create_table "post_tags", :force => true do |t|
-    t.string   "name"
-    t.integer  "blog_post_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
-  add_index "post_tags", ["blog_post_id"], :name => "index_post_tags_on_blog_post_id"
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"

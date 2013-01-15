@@ -11,4 +11,12 @@ class BlogPost < ActiveRecord::Base
   accepts_nested_attributes_for :assets, :allow_destroy => true
 
   acts_as_taggable_on :tags
+
+  def next
+  	BlogPost.where("id > ?", id).first
+  end
+
+  def prev
+  	BlogPost.where("id < ?", id).last
+  end
 end

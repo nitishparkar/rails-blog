@@ -1,9 +1,14 @@
+<div id="navigate">
+    <div id="prev" class="pull-left"><%= link_to "< Prev", @prev, remote: true %></div>
+    <div id="next" class="pull-right"><%= link_to "Next >", @next, remote: true %></div>
+    <div class="clearfix"></div>
+</div>
 <div class="blog-post">
     <div class="post-header"> 
         <h2><%= @blog_post.title %></h2>
         
         <div class="pull-left">
-            Author:<strong><%= get_username(@blog_post.user_id) %></strong> 
+            Author:<strong id="author"><%= get_username(@blog_post.user_id) %></strong> 
         </div>
         <div class="pull-right">
             <% if user_signed_in? and is_authorized?(@blog_post.user_id) %>
@@ -20,15 +25,6 @@
     <div class="post-content"> <%= @blog_post.content %> </div>
 </div>
 <br />
-<div class="fb-button">
-    <%= button_to "I have read this post!", "https://www.facebook.com/dialog/feed?
-  app_id=129777817126964&
-  link=http://genii.in/&
-  picture=https://nameless-plains-7988.herokuapp.com/genii.jpg&
-  name=" + @blog_post.title + "&
-  description= I read this post on https://nameless-plains-7988.herokuapp.com/&
-  redirect_uri=https://nameless-plains-7988.herokuapp.com/" %>
-</div>
 
 <% unless @blog_post.assets.empty? %>
     <div class="post-attachments">
