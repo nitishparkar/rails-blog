@@ -10,7 +10,7 @@
         <div class="pull-left">
             Author:<strong id="author"><%= get_username(@blog_post.user_id) %></strong> 
         </div>
-        <div class="pull-right">
+        <div id="modification" class="pull-right">
             <% if user_signed_in? and is_authorized?(@blog_post.user_id) %>
                 <%= link_to 'Edit', edit_blog_post_path(@blog_post) %>
                 <%= link_to 'Delete', @blog_post, method: :delete, 

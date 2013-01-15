@@ -6,6 +6,13 @@ $('#next').html('<%= link_to "Next >", @next, remote: true %>');
 $('.post-tags').html('<%= raw format_tags(@blog_post.tag_list) %>');
 $('.post-comments h3').remove();
 $('.post-comments .comments').remove();
+
+$('#modification').empty();
+<% if user_signed_in? and is_authorized?(@blog_post.user_id) %>
+	$('<%= link_to "Delete", @blog_post, method: :delete, data: { confirm: "Are you sure?" } %>').appendTo('#modification');
+	$('<%= link_to "Edit", edit_blog_post_path(@blog_post) %>').appendTo('#modification');	
+<% end %>
+
 <% unless @blog_post.user_comments.empty? %>
 	$('.post-comments').prepend('<div class="comments"></div>');
 	$('.post-comments').prepend('<h3>Comments:</h3>');
