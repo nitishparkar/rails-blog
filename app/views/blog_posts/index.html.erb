@@ -1,3 +1,13 @@
+<div id="filters" class="pull-left">
+  <input type="text" id="global_search" placeholder="search">
+  <input type="text" id="user_search" placeholder="username">
+</div>
+<div id="sorts" class="pull-right">
+	Created<button id="created" class="u">^</button>
+	Modified<button id="modified" class="u">^</button>
+</div>
+<div class="clearfix"></div>
+
 <div id="blog-posts">
   <%= render @blog_posts %>
 </div>
@@ -5,4 +15,3 @@
 <div class="digg_pagination">
   <%= will_paginate @blog_posts %>
 </div>
-

@@ -3,7 +3,7 @@
     <h2><%= link_to blog_post.title, blog_post %></h2>
     
     <div class="pull-left">
-      Author:<strong><%= get_username(blog_post.user_id) %></strong> 
+      Author:<strong id="author"><%= get_username(blog_post.user_id) %></strong> 
     </div>
     <div class="pull-right">
       <% if user_signed_in? and is_authorized?(blog_post.user_id) %>
@@ -17,6 +17,9 @@
   <hr />
   
   <div class="post-content"> <%= blog_post.content %> </div>
+  <div>
+    <span id="created">created:<%= blog_post.created_at %></span> modified:<span id="modified"><%= blog_post.updated_at %></span>
+  </div> 
   <div class="post-tags">
     tags: <%= raw format_tags(blog_post.tag_list) %>
   </div>
