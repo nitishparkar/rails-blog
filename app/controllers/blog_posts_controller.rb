@@ -16,7 +16,7 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts
   # GET /blog_posts.json
   def index
-    pagination_params = {:page => params[:page], :per_page => 10, :order => "created_at DESC"}
+    pagination_params = {:page => params[:page], :per_page => 5, :order => "created_at DESC"}
     if params[:tag]
       @blog_posts = BlogPost.tagged_with(params[:tag]).paginate(pagination_params)
     else
@@ -26,6 +26,7 @@ class BlogPostsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @blog_posts }
+      format.js
     end
   end
 

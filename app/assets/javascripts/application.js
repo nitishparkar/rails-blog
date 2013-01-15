@@ -13,3 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(document).ready(function() {
+
+	if($('.pagination').length) {
+		$(window).scroll(function() {
+			
+		   var url = $('.pagination .next_page').attr('href');
+		   if(url && $(window).scrollTop() + $(window).height() > $(document).height() - 10) {
+		   	   console.log('scroll');
+		   	   $('.pagination').text('fetching more records..');
+		       $.getScript(url);
+		   }
+		});
+	}
+	
+});
