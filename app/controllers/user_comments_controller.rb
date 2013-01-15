@@ -17,8 +17,7 @@ class UserCommentsController < ApplicationController
         respond_to do |format|
             format.html { redirect_to blog_post_path(@blog_post) }
             format.js
-        end
-        
+        end   
     end
 
     def destroy

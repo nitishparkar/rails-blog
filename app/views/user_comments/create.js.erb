@@ -1,3 +1,6 @@
+if($('.comments').length === 0) {
+	$('.post-tags').after('<div class="post-comments"></div>');
+}
 $('.comments').append('<%= j render @user_comment %>');
 $('#user_comment_commenter').val("");
 $('#user_comment_body').val("");
