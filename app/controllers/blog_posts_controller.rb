@@ -16,7 +16,26 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts
   # GET /blog_posts.json
   def index
-    pagination_params = {:page => params[:page], :per_page => 5, :order => "created_at DESC"}
+
+    order_string = "created_at DESC"
+    @attribute = ""
+
+    @link_filter = params[:link_filter]
+
+    puts 'params', params, "\n\n"
+
+
+    #users = User.where('username LIKE ?', '%nitbhjbish%')
+    #users
+
+    if params[:filter]
+        order_string = "#{params[:filter]} #{params[:direction]}"
+        @attribute = params[:filter]  
+    end
+    
+    #puts 'attribute', @attribute
+
+    pagination_params = {:page => params[:page], :per_page => 5, :order => order_string}
     if params[:tag]
       @blog_posts = BlogPost.tagged_with(params[:tag]).paginate(pagination_params)
     else

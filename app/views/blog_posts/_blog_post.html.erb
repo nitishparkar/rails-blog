@@ -18,7 +18,7 @@
   
   <div class="post-content"> <%= blog_post.content %> </div>
   <div id="timestamps">
-    <span id="created">created:<%= blog_post.created_at %></span> modified:<span id="modified"><%= blog_post.updated_at %></span>
+    <span id="created_dt">created:<%= blog_post.created_at %></span> updated:<span id="updated_dt"><%= blog_post.updated_at %></span>
   </div> 
   <div class="post-tags">
     tags: <%= raw format_tags(blog_post.tag_list) %>

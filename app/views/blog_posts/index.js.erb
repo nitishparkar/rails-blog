@@ -1,7 +1,50 @@
+<% if @link_filter %>
+	$('#blog-posts').empty();
+<% end %>
+
+
+
+<% if @link_filter && @attribute == "created_at" %>
+	console.log('created');
+	
+	if($('#created').text() === '^') {
+        $('#created').text('v');
+        var ahref = $('#created').attr('href');
+        $('#created').attr('href', ahref.replace('ASC', 'DESC'));
+    } else {
+        $('#created').text('^');
+        var ahref = $('#created').attr('href');
+        $('#created').attr('href', ahref.replace('DESC', 'ASC'));
+    }
+
+<% end %>
+
+<% if @link_filter && @attribute == "updated_at" %>
+	console.log('updated');
+	
+	if($('#updated').text() === '^') {
+        $('#updated').text('v');
+        var ahref = $('#updated').attr('href');
+        $('#updated').attr('href', ahref.replace('ASC', 'DESC'));
+    } else {
+        $('#updated').text('^');
+        var ahref = $('#updated').attr('href');
+        $('#updated').attr('href', ahref.replace('DESC', 'ASC'));
+    }
+
+<% end %>
+
+
+
+
 $('#blog-posts').append('<%= j render(@blog_posts) %>');
 
 <% if @blog_posts.next_page %>
 	$('.pagination').replaceWith('<%= j will_paginate @blog_posts %>');
-<% else %>
-	$('.pagination').replaceWith();
+
 <% end %>
+
+
+
+
+
