@@ -24,6 +24,16 @@ class BlogPostsController < ApplicationController
 
     puts 'params', params, "\n\n"
 
+    @content_filter = nil
+    @user_filter = nil
+    
+    if params[:gsearch] && params[:gsearch].length > 0
+        @content_filter = params[:gsearch]
+    end
+
+    
+
+    
 
     #users = User.where('username LIKE ?', '%nitbhjbish%')
     #users
@@ -36,10 +46,15 @@ class BlogPostsController < ApplicationController
     #puts 'attribute', @attribute
 
     pagination_params = {:page => params[:page], :per_page => 5, :order => order_string}
-    if params[:tag]
-      @blog_posts = BlogPost.tagged_with(params[:tag]).paginate(pagination_params)
+    
+    if @content_filter
+        @blog_posts = BlogPost.where('title LIKE ? OR content LIKE ?', "%#{@content_filter}%", "%#{@content_filter}%").paginate(pagination_params)
     else
-      @blog_posts = BlogPost.paginate(pagination_params)
+      if params[:tag]
+        @blog_posts = BlogPost.tagged_with(params[:tag]).paginate(pagination_params)
+      else
+        @blog_posts = BlogPost.paginate(pagination_params)
+      end
     end
 
     respond_to do |format|

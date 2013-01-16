@@ -1,8 +1,15 @@
 <div id="filters" class="pull-left">
-  <input type="text" id="global_search" placeholder="search">Created<%= link_to "Go", root_path(:content_filter => "1" ), :id => "global_search_go", remote: true  %>
-  <input type="text" id="user_search" placeholder="username">
+  
+
+  <%= form_tag blog_posts_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :gsearch, params[:gsearch] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <% end %>
 
   
+
 </div>
 <div id="sorts" class="pull-right">
 	
