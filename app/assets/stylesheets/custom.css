@@ -45,3 +45,7 @@ a {
 .blog-post {
     margin-top: 30px;
 }
+
+.digg-pagination {
+    visibility: hidden;
+}
