@@ -12,8 +12,7 @@
         </div>
         <div id="modification" class="pull-right">
             <% if user_signed_in? and is_authorized?(@blog_post.user_id) %>
-                <%= link_to 'Edit', edit_blog_post_path(@blog_post) %>
-                <%= link_to 'Delete', @blog_post, method: :delete, 
+                <%= link_to 'Edit', edit_blog_post_path(@blog_post) %><%= link_to 'Delete', @blog_post, method: :delete, 
                 data: { confirm: 'Are you sure?' } %>
             <% end %>
         </div>

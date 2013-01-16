@@ -9,8 +9,9 @@ $('.post-comments .comments').remove();
 
 $('#modification').empty();
 <% if user_signed_in? and is_authorized?(@blog_post.user_id) %>
+	$('<%= link_to "Edit", edit_blog_post_path(@blog_post) %>').appendTo('#modification');
 	$('<%= link_to "Delete", @blog_post, method: :delete, data: { confirm: "Are you sure?" } %>').appendTo('#modification');
-	$('<%= link_to "Edit", edit_blog_post_path(@blog_post) %>').appendTo('#modification');	
+		
 <% end %>
 
 <% unless @blog_post.user_comments.empty? %>
