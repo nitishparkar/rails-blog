@@ -51,6 +51,8 @@ GEM
     eventmachine (1.0.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    faker (1.1.2)
+      i18n (~> 0.5)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -74,6 +76,7 @@ GEM
       mime-types
     pg (0.14.1)
     polyglot (0.3.3)
+    populator (1.0.0)
     quiet_assets (1.0.1)
       railties (~> 3.1)
     rack (1.4.1)
@@ -138,9 +141,11 @@ DEPENDENCIES
   acts-as-taggable-on (~> 2.3.1)
   coffee-rails (~> 3.2.1)
   devise
+  faker
   jquery-rails
   paperclip (~> 3.0)
   pg
+  populator
   quiet_assets
   rails (= 3.2.9)
   sass-rails (~> 3.2.3)
