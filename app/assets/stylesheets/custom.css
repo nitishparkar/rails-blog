@@ -55,3 +55,12 @@ a {
     visibility: hidden;
 }
 */
+
+
+#loadmsg {
+    position: fixed;
+    left: 500;
+    top: 250;
+    z-index: 1000;
+    visibility: hidden;
+}

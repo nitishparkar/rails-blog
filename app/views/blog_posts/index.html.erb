@@ -4,7 +4,7 @@
   <%= form_tag blog_posts_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :gsearch, params[:gsearch] %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= submit_tag "Search", :name => nil, :id => 'search_submit' %>
   </p>
   <% end %>
 

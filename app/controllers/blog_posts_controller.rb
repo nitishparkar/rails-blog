@@ -31,10 +31,6 @@ class BlogPostsController < ApplicationController
         @content_filter = params[:gsearch]
     end
 
-    
-
-    
-
     #users = User.where('username LIKE ?', '%nitbhjbish%')
     #users
 

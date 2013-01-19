@@ -38,6 +38,12 @@ $(document).ready(function() {
 		});
 	}
 
+	$('#created, #updated, #search_submit').click(function(){
+		$('#loadmsg').attr('visibility', 'visible');
+	});
+
+
+
 	/*
 	$('#created').click(function(){
 		console.log('clicked');

@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <h1 id="loadmsg">Loading...</h1>
     <div class="pull-left">
       <%= link_to "Home", blog_posts_path %> |
       <%= link_to 'New Blog post', new_blog_post_path %>
@@ -28,6 +29,9 @@
 
     <%= yield %>
 
+
+
     <%= debug(params) if Rails.env.development? %>
+
 </body>
 </html>
